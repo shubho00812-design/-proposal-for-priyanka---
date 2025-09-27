@@ -1,13 +1,13 @@
 "use client"
-  
+
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import FirstScreen from "@/components/FirstScreen"
-import QuestionScreen from "@/components/QuestionScreen"
-import BalloonsScreen from "@/components/BalloonsScreen"
-import PhotoScreen from "@/components/PhotoScreen"
-import FinalScreen from "@/components/FinalScreen"
-import CuteLoader from "@/components/CuteLoader"
+import FirstScreen from "../components/FirstScreen"
+import QuestionScreen from "../components/QuestionScreen"
+import BalloonsScreen from "../components/BalloonsScreen"
+import PhotoScreen from "../components/PhotoScreen"
+import FinalScreen from "../components/FinalScreen"
+import CuteLoader from "../components/CuteLoader"
 
 export default function ProposalSite() {
   const [currentScreen, setCurrentScreen] = useState("loader")
@@ -28,7 +28,6 @@ export default function ProposalSite() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-fuchsia-950/30 via-black/70 to-rose-950/40 relative overflow-hidden">
-
       <AnimatePresence mode="wait">
         {isLoading && <CuteLoader key="loader" onComplete={() => setCurrentScreen("first")} />}
 
@@ -53,9 +52,7 @@ export default function ProposalSite() {
         )}
 
         {currentScreen === "balloons" && <BalloonsScreen key="balloons" onNext={() => nextScreen("photos")} />}
-
         {currentScreen === "photos" && <PhotoScreen key="photos" onNext={() => nextScreen("final")} />}
-
         {currentScreen === "final" && <FinalScreen key="final" />}
       </AnimatePresence>
 
@@ -63,12 +60,10 @@ export default function ProposalSite() {
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{
-          duration: 1,
-          delay: 1,
-        }}
-        className="fixed bottom-4 right-4 text-[13px] text-white/40 pointer-events-none z-50 font-light">
-        @anujbuilds
+        transition={{ duration: 1, delay: 1 }}
+        className="fixed bottom-4 right-4 text-[13px] text-white/40 pointer-events-none z-50 font-light"
+      >
+        Made with 💖 by Shubhojit for Priyanka
       </motion.div>
     </div>
   )
